@@ -4,6 +4,9 @@ import helmet from "helmet";
 import chalk from "chalk";
 import dotenv from "dotenv";
 import { usersRouter } from "./routers/users.js";
+
+import { productsRouter } from "./routers/products.js";
+
 dotenv.config();
 
 const app = express();
@@ -15,6 +18,7 @@ app.use(cors());
 app.use(json());
 
 app.use("/users", usersRouter);
+app.use("/products", productsRouter);
 
 app.listen(PORT, () => {
   console.log(chalk.green(`Server listening on port ${PORT}`));

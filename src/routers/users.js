@@ -1,9 +1,10 @@
 import { Router } from "express";
-import { updateCart } from "../controllers/users/update.js";
-import authenticate from "../middlewares/authenticate.js";
+import createUser from "../controllers/users/create.js";
+import validateSchema from "../middlewares/validateSchema.js";
+import createUserSchema from "../request_schemas/users/create.js";
 
-const router = new Router("/users");
+const router = Router("/users");
 
-router.put("/cart/:productId", updateCart);
+router.post("/", validateSchema(createUserSchema), createUser);
 
 export { router as usersRouter };

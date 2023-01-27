@@ -19,4 +19,3 @@ export const users = db.collection("users");
 export const products = db.collection("products");
 export const carts = db.collection("carts");
 export const cartsProducts = db.collection("cartsProducts");
-export const sessions = db.collection("sessions");
