@@ -3,9 +3,10 @@ import { users } from "../../config/database.js";
 import internalError from "../../utils/functions/internalError.js";
 import bcrypt from "bcrypt";
 import { saltRounds } from "../../utils/constants/bcrypt.js";
+import sanitizeObject from "../../utils/functions/sanitizeObject.js";
 
 const createUser = async (req, res) => {
-  const { name, email, address, password } = req.body;
+  const { name, email, address, password } = sanitizeObject(req.body);
 
   console.log(chalk.cyan("POST /users"));
   try {

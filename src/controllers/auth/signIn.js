@@ -3,9 +3,10 @@ import bcrypt from "bcrypt";
 import chalk from "chalk";
 import internalError from "../../utils/functions/internalError.js";
 import { jwtSecret, jwtTokenDuration  } from "../../utils/constants/jwt.js";
+import sanitizeObject from "../../utils/functions/sanitizeObject.js";
 
 const signIn = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = sanitizeObject(req.body);
 
   console.log(chalk.cyan("POST /auth/sign-in"));
   try {
