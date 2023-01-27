@@ -7,3 +7,5 @@ import signIn from "../controllers/auth/signIn.js";
 const router = Router("/auth");
 
 router.post("/sign-in", validateSchema(signInSchema), signIn);
+
+export { router as authRouter };

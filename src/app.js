@@ -6,7 +6,6 @@ import dotenv from "dotenv";
 import { authRouter } from "./routers/auth.js";
 import { usersRouter } from "./routers/users.js";
 import { productsRouter } from "./routers/products.js";
-import { cartsRouter } from "./routers/carts.js";
 dotenv.config();
 
 const app = express();
@@ -20,7 +19,6 @@ app.use(json());
 app.use("/auth", authRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
-app.use("/carts", cartsRouter);
 
 app.listen(PORT, () => {
   console.log(chalk.green(`Server listening on port ${PORT}`));
