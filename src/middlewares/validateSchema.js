@@ -1,6 +1,9 @@
+import sanitizeObject from "../utils/functions/sanitizeObject.js";
+
 const validateSchema = (schema) => {
   return (req, res, next) => {
-    const { error } = schema.validate({ ...req.body, ...req.query, ...req.params }, { abortEarly: false });
+    res.sanitizedParams = sanitizeObject({ ...req.body, ...req.query, ...req.params });
+    const { error } = schema.validate(res.sanitizedParams, { abortEarly: false });
 
     if (error) {
       const errorMessages = error.details.map(detail => detail.message);
