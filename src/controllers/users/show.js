@@ -3,7 +3,7 @@ import chalk from "chalk";
 import { users } from "../../config/database.js";
 import internalError from "../../utils/functions/internalError.js";
 
-const indexUserById = async (req, res) => {
+const showUser = async (req, res) => {
   const { userId } = res.locals;
 
   console.log(chalk.cyan("GET /users"));
@@ -22,4 +22,4 @@ const indexUserById = async (req, res) => {
   }
 };
 
-export default indexUserById;
+export default showUser;
