@@ -2,8 +2,8 @@ import jwt from "jsonwebtoken";
 import { jwtSecret } from "../utils/constants/jwt.js";
 
 export default async function authenticate(req, res, next) {
-  const { token } = req.headers;
-
+  const { authorization } = req.headers;
+  const token = authorization?.replace("Bearer ", "");
   if (!token) {
     return res.sendStatus(401);
   }
@@ -12,8 +12,7 @@ export default async function authenticate(req, res, next) {
     const { userId } = jwt.verify(token, jwtSecret);
 
     res.locals = { userId };
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error);
     return res.sendStatus(401);
   }
