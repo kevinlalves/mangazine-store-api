@@ -21,6 +21,7 @@ const createProduct = async (req, res) => {
       price,
       rating: 0,
       quantity: quantity || initialQuantity,
+      reviewCount: 0,
       image,
       createAt: new Date()
     });

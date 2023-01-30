@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import { ObjectId } from "mongodb";
-import { orders, ordersProducts, products } from "../../config/database.js";
+import { orders, ordersProducts, products, users } from "../../config/database.js";
 import internalError from "../../utils/functions/internalError.js";
 
 const createOrder = async (req, res) => {
@@ -9,6 +9,8 @@ const createOrder = async (req, res) => {
 
   console.log(chalk.cyan("POST /checkout"));
   try {
+    await users.updateOne({ _id: ObjectId(userId) }, { $set: { cart: [] } });
+
     const { insertedId: orderId } = await orders.insertOne({ userId, address, paymentMethod });
 
     await ordersProducts.insertMany(cart.map(({ product, quantity }) => ({
