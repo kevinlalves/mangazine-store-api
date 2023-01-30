@@ -10,7 +10,9 @@ import updateUserSchema from "../request_schemas/users/update.js";
 const router = Router("/users");
 
 router.post("/", validateSchema(createUserSchema), createUser);
+
+router.use(authenticate);
 router.put("/", validateSchema(updateUserSchema), updateUser);
-router.get("/", authenticate, showUser);
+router.get("/", showUser);
 
 export { router as usersRouter };

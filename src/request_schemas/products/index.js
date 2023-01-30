@@ -1,8 +1,8 @@
 import Joi from "joi";
 
 const indexProductsSchema = Joi.object({
-  per: Joi.number().required(),
-  page: Joi.number().required()
+  per: Joi.number().min(1).required(),
+  page: Joi.number().min(1).required()
 });
 
 export default indexProductsSchema;

@@ -1,7 +1,8 @@
-import { ObjectId } from "mongodb";
 import chalk from "chalk";
+import { ObjectId } from "mongodb";
 import { users } from "../../config/database.js";
 import internalError from "../../utils/functions/internalError.js";
+import userSerializer from "../../serializer/user.js";
 
 const showUser = async (req, res) => {
   const { userId } = res.locals;
@@ -12,12 +13,10 @@ const showUser = async (req, res) => {
     if (!user) {
       return res.status(404).send("Usuário não encontrado!");
     }
-    return res.status(201).send({
-      name: user.name,
-      email: user.email,
-      address: user.address,
-    });
-  } catch (error) {
+
+    return res.json(userSerializer({ user }));
+  }
+  catch (error) {
     internalError(error, res);
   }
 };

@@ -20,7 +20,8 @@ const createUser = async (req, res) => {
       email,
       address,
       password: passwordHash,
-      createdAt: new Date()
+      createdAt: new Date(),
+      cart: []
     });
 
     return res.status(201).send("OK");
