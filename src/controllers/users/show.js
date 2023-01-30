@@ -11,7 +11,7 @@ const showUser = async (req, res) => {
   try {
     const user = await users.findOne({ _id: ObjectId(userId) });
     if (!user) {
-      return res.status(404).send("Usuário não encontrado!");
+      return res.status(404).send("Usuário foi deletado!");
     }
 
     return res.json(userSerializer({ user }));
