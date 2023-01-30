@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import { authRouter } from "./routers/auth.js";
 import { usersRouter } from "./routers/users.js";
 import { productsRouter } from "./routers/products.js";
+import { ordersRouter } from "./routers/orders.js";
 dotenv.config({
   path: `envs/${process.env.NODE_ENV}.env`
 });
@@ -21,6 +22,7 @@ app.use(json());
 app.use("/auth", authRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
+app.use("/checkout", ordersRouter);
 
 app.listen(PORT, () => {
   console.log(chalk.green(`Server listening on port ${PORT}`));

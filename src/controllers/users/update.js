@@ -24,7 +24,6 @@ const updateUser = async (req, res) => {
     await users.updateOne({ _id: ObjectId(userId) }, {
       $set: {
         name: name || user.name,
-        email: email || user.email,
         password: hashedPassword || user.password,
         address: address || user.address,
         cart: cart || user.cart,

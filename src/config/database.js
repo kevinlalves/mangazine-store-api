@@ -19,5 +19,5 @@ catch (error) {
 
 export const users = db.collection("users");
 export const products = db.collection("products");
-export const carts = db.collection("carts");
-export const cartsProducts = db.collection("cartsProducts");
+export const orders = db.collection("orders");
+export const ordersProducts = db.collection("ordersProducts");
