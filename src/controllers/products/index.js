@@ -11,7 +11,7 @@ const indexProducts = async (req, res) => {
     const productsList = await products.find().toArray();
     totalLength = productsList.length;
 
-    res.send({ totalLength, productsList: productsList.slice(indexInicial, indexFinal) });
+    return res.send({ totalLength, productsList: productsList.slice(indexInicial, indexFinal) });
   }
   catch (error) {
     internalError(error, res);

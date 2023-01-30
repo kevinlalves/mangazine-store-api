@@ -25,7 +25,7 @@ const createProduct = async (req, res) => {
       createAt: new Date()
     });
 
-    res.status(201).send("OK");
+    return res.status(201).send("OK");
   }
   catch (error) {
     internalError(error, res);

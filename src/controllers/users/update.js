@@ -31,7 +31,7 @@ const updateUser = async (req, res) => {
       },
     });
 
-    res.send("OK");
+    return res.send("OK");
   }
   catch (error) {
     internalError(error, res);

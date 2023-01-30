@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import sanitizeObject from "../utils/functions/sanitizeObject.js";
 
 const validateSchema = (schema) => {
@@ -9,6 +10,16 @@ const validateSchema = (schema) => {
       const errorMessages = error.details.map(detail => detail.message);
 
       return res.status(422).send(errorMessages);
+    }
+
+    const { id } = res.sanitizedParams;
+    if (id) {
+      try {
+        res.sanitizedParams._id = ObjectId(id);
+      }
+      catch {
+        return res.status(422).send("Formato do ID é inválido");
+      }
     }
 
     next();
