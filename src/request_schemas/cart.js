@@ -11,7 +11,8 @@ const cartSchema = Joi.object({
     description: Joi.string().required(),
     quantity: Joi.number().integer().min(0).required(),
     createAt: Joi.date().required(),
-    rating: Joi.number().min(0).required()
+    rating: Joi.number().min(0).required(),
+    reviewCount: Joi.number().integer().min(0).required()
   }),
   quantity: Joi.number().min(1).required(),
 });
