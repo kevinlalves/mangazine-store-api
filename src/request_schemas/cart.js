@@ -10,7 +10,7 @@ const cartSchema = Joi.object({
     author: Joi.string().required(),
     description: Joi.string().required(),
     quantity: Joi.number().integer().min(0).required(),
-    createAt: Joi.date().required(),
+    createdAt: Joi.date().required(),
     rating: Joi.number().min(0).required(),
     reviewCount: Joi.number().integer().min(0).required()
   }),
