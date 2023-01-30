@@ -1,7 +1,9 @@
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import chalk from "chalk";
-dotenv.config();
+dotenv.config({
+  path: `envs/${process.env.NODE_ENV}.env`
+});
 
 const client = new MongoClient(process.env.DATABASE_URL);
 let db;

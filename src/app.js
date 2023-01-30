@@ -6,7 +6,9 @@ import dotenv from "dotenv";
 import { authRouter } from "./routers/auth.js";
 import { usersRouter } from "./routers/users.js";
 import { productsRouter } from "./routers/products.js";
-dotenv.config();
+dotenv.config({
+  path: `envs/${process.env.NODE_ENV}.env`
+});
 
 const app = express();
 const PORT = process.env.PORT;

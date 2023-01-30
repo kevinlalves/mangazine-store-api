@@ -5,8 +5,8 @@
   "main": "src/app.js",
   "type": "module",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "start": "NODE_ENV=production node src/app.js",
+    "dev": "NODE_ENV=development nodemon src/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,8 +20,7 @@
     "joi": "^17.7.0",
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^4.13.0",
-    "string-strip-html": "^13.0.6",
-    "uuid": "^9.0.0"
+    "string-strip-html": "^13.0.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
