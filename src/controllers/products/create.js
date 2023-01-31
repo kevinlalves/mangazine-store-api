@@ -23,7 +23,7 @@ const createProduct = async (req, res) => {
       quantity: quantity || initialQuantity,
       reviewCount: 0,
       image,
-      createAt: new Date()
+      createdAt: new Date()
     });
 
     return res.status(201).send("OK");
