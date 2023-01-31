@@ -1,6 +1,10 @@
 # Use the official node image as the base image
 FROM node:18-alpine
 
+RUN apk add --update --no-cache \
+    mongodb-tools \
+    bash
+
 # Set the working directory to /app
 WORKDIR /app
 
